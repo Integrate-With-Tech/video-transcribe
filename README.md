@@ -6,6 +6,17 @@
 [![Code Style](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Platform](https://img.shields.io/badge/Platform-macOS%20%7C%20Linux%20%7C%20Windows-lightgrey.svg)](https://github.com/sejalsheth/integrate-with-tech/tree/main/Video-Transcribing)
 
+<p align="center">
+  <img alt="Video Transcribe" src="https://img.shields.io/badge/Video%20Transcribe-CLI-blue">
+  <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/License-MIT-green"></a>
+  <img alt="Python" src="https://img.shields.io/badge/Python-3.10%2B-informational">
+  <img alt="Platforms" src="https://img.shields.io/badge/OS-macOS%20%7C%20Linux-lightgrey">
+  <a href="https://github.com/Integrate-With-Tech/video-transcribe/actions/workflows/ci.yml">
+    <img alt="CI" src="https://github.com/Integrate-With-Tech/video-transcribe/actions/workflows/ci.yml/badge.svg">
+  </a>
+  <img alt="Stars" src="https://img.shields.io/github/stars/Integrate-With-Tech/video-transcribe?style=social">
+</p>
+
 A robust batch transcription tool that processes MP4 videos using OpenAI's Whisper model (via faster-whisper) and generates AI-powered summaries using Facebook's BART model.
 
 ## 🚀 Features
