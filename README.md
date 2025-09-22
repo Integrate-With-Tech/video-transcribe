@@ -1,11 +1,5 @@
 # Video Transcription with AI Summary
 
-[![License](https://img.shields.io/badge/License-Custom-blue.svg)](LICENSE)
-[![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/downloads/)
-[![CI](https://github.com/sejalsheth/integrate-with-tech/actions/workflows/ci.yml/badge.svg)](https://github.com/sejalsheth/integrate-with-tech/actions/workflows/ci.yml)
-[![Code Style](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-[![Platform](https://img.shields.io/badge/Platform-macOS%20%7C%20Linux%20%7C%20Windows-lightgrey.svg)](https://github.com/sejalsheth/integrate-with-tech/tree/main/Video-Transcribing)
-
 <p align="center">
   <img alt="Video Transcribe" src="https://img.shields.io/badge/Video%20Transcribe-CLI-blue">
   <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/License-MIT-green"></a>
