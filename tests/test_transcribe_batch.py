@@ -14,13 +14,13 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 # Import functions that don't require ML dependencies
 try:
     from transcribe_batch import (
-        srt_timestamp, 
-        outputs_present, 
-        ensure_dirs, 
+        srt_timestamp,
+        outputs_present,
+        ensure_dirs,
         build_parser,
         print_banner,
         Colors,
-        get_config_path
+        get_config_path,
     )
     IMPORTS_AVAILABLE = True
 except ImportError as e:
@@ -92,25 +92,25 @@ class TestTranscribeBatch(unittest.TestCase):
         """Test argument parser configuration"""
         parser = build_parser()
         self.assertIsInstance(parser, argparse.ArgumentParser)
-        
+
         # Test help doesn't crash
         with self.assertRaises(SystemExit):
-            parser.parse_args(['--help'])
+            parser.parse_args(["--help"])
     
     def test_colors_disable(self):
         """Test color disabling functionality"""
         # Should not raise an error
         Colors.disable()
         # Colors should be empty strings after disabling
-        self.assertEqual(Colors.RED, '')
-        self.assertEqual(Colors.GREEN, '')
+        self.assertEqual(Colors.RED, "")
+        self.assertEqual(Colors.GREEN, "")
 
     def test_config_path(self):
         """Test configuration path generation"""
         config_path = get_config_path()
         self.assertIsInstance(config_path, Path)
         # Should contain 'video-transcribe' in the path
-        self.assertIn('video-transcribe', str(config_path))
+        self.assertIn("video-transcribe", str(config_path))
 
 class TestBasicFunctionality(unittest.TestCase):
     """Tests that don't require full imports"""

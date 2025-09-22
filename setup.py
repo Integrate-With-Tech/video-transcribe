@@ -15,7 +15,7 @@ long_description = readme_path.read_text(encoding="utf-8") if readme_path.exists
 # Read requirements
 requirements = [
     "faster-whisper>=0.10.0",
-    "transformers>=4.21.0", 
+    "transformers>=4.21.0",
     "sentencepiece>=0.1.99",
     "torch>=1.13.0",
 ]
@@ -42,11 +42,9 @@ setup(
     author="Sejal Sheth",
     author_email="integratewithtech@gmail.com",
     url="https://github.com/sejalsheth/integrate-with-tech",
-    
     # Package configuration
     py_modules=["transcribe_batch"],
     python_requires=">=3.8",
-    
     # Dependencies
     install_requires=requirements,
     extras_require={
@@ -70,7 +68,7 @@ setup(
         "Operating System :: OS Independent",
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.8",
-        "Programming Language :: Python :: 3.9", 
+    "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",
         "Programming Language :: Python :: 3.12",
@@ -81,8 +79,16 @@ setup(
     
     # Keywords
     keywords=[
-        "video", "transcription", "whisper", "ai", "speech-to-text",
-        "summarization", "bart", "machine-learning", "nlp", "console"
+    "video",
+    "transcription",
+    "whisper",
+    "ai",
+    "speech-to-text",
+    "summarization",
+    "bart",
+    "machine-learning",
+    "nlp",
+    "console",
     ],
     
     # Project URLs

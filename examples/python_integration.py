@@ -3,13 +3,7 @@
 
 import sys
 from pathlib import Path
-from transcribe_batch import (
-    load_whisper, 
-    transcribe_with_feedback, 
-    write_artifacts,
-    summarize_text,
-    ensure_dirs
-)
+from transcribe_batch import load_whisper, transcribe_with_feedback, write_artifacts, summarize_text, ensure_dirs
 
 def transcribe_single_file(
     video_path: str,
@@ -18,7 +12,7 @@ def transcribe_single_file(
     language: str = "auto",
     compute_type: str = "int8",
     beam_size: int = 5,
-    do_summary: bool = True
+    do_summary: bool = True,
 ):
     """
     Transcribe a single video file using the transcription functions.
@@ -52,7 +46,7 @@ def transcribe_single_file(
             media_path=video_path,
             language=None if language == "auto" else language,
             beam_size=beam_size,
-            progress_timeout=180
+                progress_timeout=180,
         )
         
         print(f"Detected language: {info.language}")
@@ -65,7 +59,7 @@ def transcribe_single_file(
             full_text=full_text,
             stem=video_path.stem,
             do_summary=do_summary,
-            summary_max=8
+            summary_max=8,
         )
         
         print(f"✅ Successfully processed: {video_path.name}")
@@ -77,11 +71,7 @@ def transcribe_single_file(
         print(f"❌ Error processing {video_path}: {e}")
         return False
 
-def batch_transcribe_directory(
-    input_dir: str,
-    output_dir: str,
-    **kwargs
-):
+def batch_transcribe_directory(input_dir: str, output_dir: str, **kwargs):
     """
     Transcribe all MP4 files in a directory.
     
@@ -122,7 +112,7 @@ if __name__ == "__main__":
             output_dir=output_directory,
             model_size="medium",  # Use medium model for balance
             language="auto",
-            do_summary=True
+            do_summary=True,
         )
         
         if success:
@@ -137,4 +127,4 @@ if __name__ == "__main__":
         print("2. Batch directory: modify the script to call batch_transcribe_directory()")
         print("")
         print("Example for batch processing:")
-        print('batch_transcribe_directory("input_mp4", "outputs", model_size="small", language="en")')
+    print('batch_transcribe_directory("input_mp4", "outputs", model_size="small", language="en")')
