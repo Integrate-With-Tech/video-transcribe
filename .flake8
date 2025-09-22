@@ -1,0 +1,17 @@
+[flake8]
+max-line-length = 127
+extend-ignore = E203, W503, E501
+exclude = 
+    .git,
+    __pycache__,
+    build,
+    dist,
+    .venv,
+    venv,
+    .eggs,
+    *.egg-info
+per-file-ignores =
+    # Ignore specific issues in test files
+    tests/*.py: F401, F811
+    # Ignore import issues in main script (ML dependencies might not be available during testing)
+    transcribe_batch.py: F401

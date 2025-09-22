@@ -7,5 +7,8 @@ mypy>=0.991
 safety>=2.3.0
 pip-audit>=2.6.0
 
+# Optional dependencies for enhanced features
+psutil>=5.9.0
+
 # Include main requirements
 -r requirements.txt

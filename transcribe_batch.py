@@ -864,17 +864,24 @@ def check_system_requirements():
         print(f"RAM:    {status} {ram_gb:.1f} GB (recommended 4+ GB){Colors.END}")
         
         # Disk space
-        disk_usage = psutil.disk_usage('/')
-        free_gb = disk_usage.free / (1024**3)
-        disk_ok = free_gb >= 2
-        status = f"{Colors.GREEN}✅" if disk_ok else f"{Colors.YELLOW}⚠️ "
-        print(f"Disk:   {status} {free_gb:.1f} GB free (recommended 2+ GB){Colors.END}")
+        try:
+            disk_usage = psutil.disk_usage('/')
+            free_gb = disk_usage.free / (1024**3)
+            disk_ok = free_gb >= 2
+            status = f"{Colors.GREEN}✅" if disk_ok else f"{Colors.YELLOW}⚠️ "
+            print(f"Disk:   {status} {free_gb:.1f} GB free (recommended 2+ GB){Colors.END}")
+        except (OSError, AttributeError):
+            disk_ok = True  # Assume OK if we can't check
+            print(f"Disk:   {Colors.BLUE}ℹ️  Unable to check disk space{Colors.END}")
         
         # CPU cores
-        cpu_count = psutil.cpu_count()
-        print(f"CPU:    {Colors.BLUE}ℹ️  {cpu_count} cores{Colors.END}")
+        try:
+            cpu_count = psutil.cpu_count()
+            print(f"CPU:    {Colors.BLUE}ℹ️  {cpu_count} cores{Colors.END}")
+        except AttributeError:
+            print(f"CPU:    {Colors.BLUE}ℹ️  Unable to detect CPU count{Colors.END}")
         
-        return python_ok and ram_ok and disk_ok
+        return python_ok and (ram_ok if 'ram_ok' in locals() else True) and disk_ok
         
     except ImportError:
         print(f"System: {Colors.YELLOW}ℹ️  Install 'psutil' for detailed system info{Colors.END}")
