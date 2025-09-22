@@ -1,0 +1,22 @@
+# Example configuration for fast processing
+# Copy this file and modify as needed: cp examples/config_fast.txt my_config.txt
+
+# Input/Output
+--input input_mp4
+--output outputs
+
+# Model Configuration (Speed Optimized)
+--model small          # Smaller, faster model
+--compute-type int8    # Faster computation
+--beam 1              # Minimal beam size for speed
+
+# Language Settings
+--language en          # Skip auto-detection for speed
+
+# Summarization
+--summarizer none      # Skip summarization for speed
+
+# Performance & Reliability
+--timeout 1800         # 30 minutes per file
+--retries 1            # Fewer retries for speed
+--progress-timeout 120 # 2 minutes timeout

@@ -1,0 +1,16 @@
+include README.md
+include LICENSE
+include CHANGELOG.md
+include CONTRIBUTING.md
+include SECURITY.md
+include requirements.txt
+include requirements-dev.txt
+recursive-include examples *.sh *.bat *.py *.txt
+recursive-include tests *.py
+global-exclude __pycache__
+global-exclude *.py[co]
+global-exclude *.orig
+global-exclude *.rej
+global-exclude .git*
+prune input_mp4
+prune outputs

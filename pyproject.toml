@@ -1,0 +1,125 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "video-transcription-tool"
+version = "1.0.0"
+description = "Batch video transcription with AI-powered summarization using Whisper and BART"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "Custom License - Personal Use Permitted, Commercial Use Restricted"}
+authors = [
+    {name = "Sejal Sheth", email = "integratewithtech@gmail.com"}
+]
+maintainers = [
+    {name = "Sejal Sheth", email = "integratewithtech@gmail.com"}
+]
+keywords = [
+    "video", "transcription", "whisper", "ai", "speech-to-text", 
+    "summarization", "bart", "machine-learning", "nlp"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: End Users/Desktop",
+    "License :: Other/Proprietary License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Multimedia :: Video",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Text Processing :: Linguistic",
+]
+dependencies = [
+    "faster-whisper>=0.10.0",
+    "transformers>=4.21.0",
+    "sentencepiece>=0.1.99",
+    "torch>=1.13.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "flake8>=5.0.0",
+    "black>=22.0.0",
+    "mypy>=0.991",
+    "safety>=2.3.0",
+    "pip-audit>=2.6.0",
+]
+test = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/sejalsheth/integrate-with-tech"
+Repository = "https://github.com/sejalsheth/integrate-with-tech.git"
+Issues = "https://github.com/sejalsheth/integrate-with-tech/issues"
+Changelog = "https://github.com/sejalsheth/integrate-with-tech/blob/main/Video-Transcribing/CHANGELOG.md"
+Documentation = "https://github.com/sejalsheth/integrate-with-tech/blob/main/Video-Transcribing/README.md"
+
+[project.scripts]
+video-transcribe = "transcribe_batch:main"
+
+[tool.setuptools]
+packages = ["transcribe_batch"]
+
+[tool.setuptools.package-data]
+transcribe_batch = ["*.md", "*.txt"]
+
+[tool.black]
+line-length = 127
+target-version = ['py38', 'py39', 'py310', 'py311', 'py312']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+  | venv
+)/
+'''
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_functions = "test_*"
+addopts = [
+    "--verbose",
+    "--cov=transcribe_batch",
+    "--cov-report=term-missing",
+    "--cov-report=html",
+    "--cov-fail-under=70"
+]
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false  # Set to true for stricter typing
+ignore_missing_imports = true
+
+[tool.flake8]
+max-line-length = 127
+extend-ignore = ["E203", "W503"]
+exclude = [
+    ".git",
+    "__pycache__",
+    "build",
+    "dist",
+    ".venv",
+    "venv"
+]

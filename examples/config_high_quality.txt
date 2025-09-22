@@ -1,0 +1,23 @@
+# Example configuration for high-quality transcription
+# Copy this file and modify as needed: cp examples/config_high_quality.txt my_config.txt
+
+# Input/Output
+--input input_mp4
+--output outputs
+
+# Model Configuration (Best Quality)
+--model large-v3
+--compute-type float16  # Better quality than int8
+--beam 10              # Higher beam size for better accuracy
+
+# Language Settings
+--language auto         # Auto-detect language, or specify like 'en', 'es', 'fr'
+
+# Summarization
+--summarizer bart
+--summary-max 10        # More detailed summaries
+
+# Performance & Reliability
+--timeout 7200         # 2 hours per file
+--retries 3            # More retry attempts
+--progress-timeout 300 # 5 minutes timeout for progress

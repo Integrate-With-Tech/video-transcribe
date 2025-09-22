@@ -1,0 +1,17 @@
+# Core transcription and ML dependencies
+faster-whisper>=0.10.0
+transformers>=4.21.0
+sentencepiece>=0.1.99
+torch>=1.13.0
+
+# Additional dependencies that may be needed
+# ffmpeg-python>=0.2.0  # Alternative FFmpeg binding if needed
+# numpy>=1.21.0         # Usually comes with torch/transformers
+# scipy>=1.7.0          # May be needed for some audio processing
+
+# Development and testing dependencies (optional)
+# pytest>=7.0.0
+# pytest-cov>=4.0.0
+# flake8>=5.0.0
+# black>=22.0.0
+# mypy>=0.991
