@@ -52,69 +52,137 @@ outputs/
 
 ## 🛠️ Installation
 
+### Quick Installation
+
+```bash
+# Clone the repository
+git clone <repository-url>
+cd video-transcribe
+
+# Install as a global console application
+pip install -e .
+
+# Verify installation
+video-transcribe --version
+```
+
 ### Prerequisites
+
+The installer will help you check these, but you'll need:
 
 - **Python 3.8+**
 - **FFmpeg** (for audio processing)
-- **macOS/Linux** (recommended)
 
-### Setup Instructions
+### System Setup
 
 1. **Install FFmpeg**:
    ```bash
    # macOS (using Homebrew)
    brew install ffmpeg
    
-   # Ubuntu/Debian
+   # Ubuntu/Debian  
    sudo apt update && sudo apt install ffmpeg
    
-   # CentOS/RHEL
-   sudo yum install ffmpeg
+   # Windows (using Chocolatey)
+   choco install ffmpeg
    ```
 
-2. **Clone and Setup Python Environment**:
+2. **Python Dependencies** (auto-installed):
    ```bash
-   git clone <repository-url>
-   cd Video-Transcribing
-   
-   # Create virtual environment
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   
-   # Install dependencies
-   pip install --upgrade pip
+   # These are installed automatically with pip install -e .
    pip install faster-whisper transformers sentencepiece torch
+   ```
+
+3. **Verify Setup**:
+   ```bash
+   video-transcribe --check-deps
    ```
 
 ## 📖 Usage
 
-### Basic Usage
+This is now a full-featured **console application** with interactive menus, configuration management, and user-friendly commands.
 
-1. **Place your MP4 files** in the `input_mp4/` directory
-2. **Run the transcription**:
+### 🚀 Quick Start (Recommended)
+
+1. **Install the application**:
    ```bash
-   python transcribe_batch.py run \
-     --input input_mp4 \
-     --output outputs \
-     --model large-v3 \
-     --language en
+   pip install -e .
    ```
 
-### Advanced Usage
+2. **Interactive setup** (first time):
+   ```bash
+   video-transcribe --interactive
+   ```
+
+3. **Check your system**:
+   ```bash
+   video-transcribe --check-deps
+   ```
+
+4. **Process videos**:
+   ```bash
+   video-transcribe run --quick --input input_mp4 --output outputs
+   ```
+
+### 📱 Available Commands
+
+| Command | Description |
+|---------|-------------|
+| `video-transcribe --interactive` | 🧙‍♂️ Interactive setup wizard |
+| `video-transcribe run` | 📁 Batch process directory |
+| `video-transcribe file` | 📄 Process single file |
+| `video-transcribe --guide` | 📚 Complete usage guide |
+| `video-transcribe --check-deps` | 🔍 Verify dependencies |
+| `video-transcribe --show-config` | ⚙️ View settings |
+
+### 🎯 Processing Modes
+
+**Batch Processing:**
+```bash
+# Quick mode (balanced speed/quality)
+video-transcribe run --quick --input videos/ --output results/
+
+# Quality mode (best accuracy)
+video-transcribe run --quality --input videos/ --output results/
+
+# Fast mode (for testing)
+video-transcribe run --fast --input videos/ --output results/
+
+# Select specific files interactively
+video-transcribe run --select --input videos/ --output results/
+```
+
+**Single File Processing:**
+```bash
+# Process one file
+video-transcribe file --input myvideo.mp4 --output results/
+
+# Browse and select file interactively
+video-transcribe file --browse
+```
+
+### 🌍 Language Options
 
 ```bash
-python transcribe_batch.py run \
-  --input input_mp4 \
-  --output outputs \
-  --model large-v3 \
-  --language en \
-  --compute-type int8 \
-  --beam 5 \
-  --timeout 7200 \
-  --retries 2 \
-  --progress-timeout 180 \
-  --summarizer bart \
-  --summary-max 8
+# Auto-detect language (recommended)
+video-transcribe run --language auto --input videos/ --output results/
+
+# Specific languages
+video-transcribe run --language en --input videos/ --output results/  # English
+video-transcribe run --language es --input videos/ --output results/  # Spanish
+video-transcribe run --language fr --input videos/ --output results/  # French
+```
+
+### 🤖 Model Selection
+
+```bash
+# Available models (size vs accuracy tradeoff)
+video-transcribe --models  # Show model information
+
+# Use specific model
+video-transcribe run --model tiny --input videos/ --output results/     # Fastest
+video-transcribe run --model small --input videos/ --output results/    # Balanced  
+video-transcribe run --model large-v3 --input videos/ --output results/ # Best quality
 ```
 
 ### Command Line Options

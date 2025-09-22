@@ -68,7 +68,7 @@ Documentation = "https://github.com/sejalsheth/integrate-with-tech/blob/main/Vid
 video-transcribe = "transcribe_batch:main"
 
 [tool.setuptools]
-packages = ["transcribe_batch"]
+py-modules = ["transcribe_batch"]
 
 [tool.setuptools.package-data]
 transcribe_batch = ["*.md", "*.txt"]
